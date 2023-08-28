@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register</title>
+</head>
+
+<body>
+  <form onsubmit="register()">
+    <div id="bungkus">
+      <h1>Register dlu!</h1>
+      <label>Username :</label>
+      <input type="text" id="username" />
+      <br> <br>
+      <label>Password :</label>
+      <input type="password" id="password" />
+      <br> <br>
+      <button type="submit" id="pencetan"> Register!</button>
+      <br> <br>
+      <label>Jika sudah Register ayuk langsung <a href="index.html">login</a> disini!</label>
+  </form>
+  </div>
+  <script>
+    bungkus.style.textAlign = "center"
+        bungkus.style.marginTop = "50%"
+        
+        
+        function register(e){
+          event.preventDefault() ;
+          
+          
+          
+          var username = document.getElementById('username').value
+          var password = document.getElementById('password').value
+          var user = {
+            username: username,
+            password: password,
+          }
+          
+          var json = JSON.stringify(user)
+          localStorage.setItem(username, json)
+          console.log('user added')
+          
+         
+          
+         
+          
+          
+        }
+    </script>
+</body>
+
+</html>

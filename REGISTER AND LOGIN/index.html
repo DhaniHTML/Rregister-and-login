@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tempat Login</title>
+  </head>
+  <body>
+    <div id="bungkus">
+      <h1>Silahkan Login!</h1>
+      <br />
+      <label>Username :</label>
+      <input type="text" id="username" />
+      <br />
+      <br />
+      <label>Password :</label>
+      <input type="password" id="password" />
+      <br />
+      <br />
+      <button onclick="sistem()">Confirm</button>
+      <br />
+      <br />
+      <label>Jika blm ada akun bisa</label>
+      <a href="register.html">Register</a>
+      <h2 id="masuk">
+        Login berhasil.. silahkan klik<a href="Underoos-geming.html">disini!</a>
+      </h2>
+      <p id="passwordSalah">Password mu salah</p>
+      <p id="usernameSalah">Username mu salah</p>
+    </div>
+    <script>
+      let masuk = document.getElementById("masuk");
+      let passwordSalah = document.getElementById("passwordSalah");
+      let usernameSalah = document.getElementById("usernameSalah");
+
+      masuk.style.display = "none";
+      passwordSalah.style.display = "none";
+      usernameSalah.style.display = "none";
+      bungkus.style.textAlign = "center";
+      bungkus.style.marginTop = "50%";
+
+      function sistem(e) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var result = document.getElementById("result");
+
+        var user = localStorage.getItem(username);
+        var data = JSON.parse(user);
+        console.log(data);
+
+        if (user == null) {
+          console.log("Wrong Username");
+          usernameSalah.style.display = "block";
+          passwordSalah.style.display = "none";
+        } else if (username == data.username && password == data.password) {
+          masuk.style.display = "block";
+          usernameSalah.style.display = "none";
+          passwordSalah.style.display = "none";
+        } else {
+          console.log("Wrong Password");
+          passwordSalah.style.display = "block";
+          usernameSalah.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
